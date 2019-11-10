@@ -1,2 +1,0 @@
-# FormikTutorial
-Created with CodeSandbox
