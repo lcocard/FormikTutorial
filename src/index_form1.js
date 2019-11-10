@@ -75,7 +75,7 @@ const MySelect = ({ label, ...props }) => {
 };
 
 // And now we can use these
-const SignupForm = () => {
+const DiagnosisForm1 = () => {
   return (
     <>
       <h1>Diagnosis Form 1</h1>
@@ -142,7 +142,7 @@ const SignupForm = () => {
   );
 };
 function App() {
-  return <SignupForm />;
+  return <DiagnosisForm1 />;
 }
 
 const rootElement = document.getElementById("root");

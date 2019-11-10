@@ -78,30 +78,34 @@ const MySelect = ({ label, ...props }) => {
 const SignupForm = () => {
   return (
     <>
-      <h1>Diagnosis Form 1</h1>
+      <h1>Subscribe!</h1>
       <Formik
         initialValues={{
-          age: "",
-          gender: "",
-          location: "", // added for our select
-          acceptedTerms: false // added for our checkbox
+          firstName: "",
+          lastName: "",
+          email: "",
+          acceptedTerms: false, // added for our checkbox
+          jobType: "" // added for our select
         }}
         validationSchema={Yup.object({
-          age: Yup.string()
-            .min(1, "Must be 2 characters or less")
+          firstName: Yup.string()
+            .min(15, "Must be 15 characters or less")
             .required("Required"),
-          location: Yup.string()
-            .min(2, "Must be 20 characters or less")
+          lastName: Yup.string()
+            .min(20, "Must be 20 characters or less")
+            .required("Required"),
+          email: Yup.string()
+            .email("Invalid email addresss`")
             .required("Required"),
           acceptedTerms: Yup.boolean()
             .required("Required")
             .oneOf([true], "You must accept the terms and conditions."),
-          gender: Yup.string()
+          jobType: Yup.string()
             // specify the set of valid values for job type
             // @see http://bit.ly/yup-mixed-oneOf
             .oneOf(
-              ["male", "female", "other"],
-              "Invalid Gender Type"
+              ["designer", "development", "product", "other"],
+              "Invalid Job Type"
             )
             .required("Required")
         })}
@@ -114,21 +118,28 @@ const SignupForm = () => {
       >
         <Form>
           <MyTextInput
-            label="Age"
-            name="age"
-            type="number"
-            placeholder="21"
+            label="First Name"
+            name="firstName"
+            type="text"
+            placeholder="Jane"
           />
           <MyTextInput
-            label="Location"
-            name="location"
+            label="Last Name"
+            name="lastName"
             type="text"
-            placeholder="Toronto"
+            placeholder="Doe"
           />
-          <MySelect label="Gender" name="gender">
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
+          <MyTextInput
+            label="Email Address"
+            name="email"
+            type="email"
+            placeholder="jane@formik.com"
+          />
+          <MySelect label="Job Type" name="jobType">
+            <option value="">Select a job type</option>
+            <option value="designer">Designer</option>
+            <option value="development">Developer</option>
+            <option value="product">Product Manager</option>
             <option value="other">Other</option>
           </MySelect>
           <MyCheckbox name="acceptedTerms">

@@ -6,10 +6,10 @@ import styled from "@emotion/styled";
 import "./styles.css";
 import "./styles-custom.css";
 
-const MyTextInput = ({ label, ...props }) => {
+/*const MyTextInput = ({ label, ...props }) => {*/
   // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
   // which we can spread on <input> and alse replace ErrorMessage entirely.
-  const [field, meta] = useField(props);
+  /*const [field, meta] = useField(props);
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
@@ -19,9 +19,9 @@ const MyTextInput = ({ label, ...props }) => {
       ) : null}
     </>
   );
-};
+};*/
 
-const MyCheckbox = ({ children, ...props }) => {
+/*const MyCheckbox = ({ children, ...props }) => {
   const [field, meta] = useField({ ...props, type: "checkbox" });
   return (
     <>
@@ -34,7 +34,7 @@ const MyCheckbox = ({ children, ...props }) => {
       ) : null}
     </>
   );
-};
+};*/
 
 // Styled components ....
 const StyledSelect = styled.select`
@@ -75,35 +75,30 @@ const MySelect = ({ label, ...props }) => {
 };
 
 // And now we can use these
-const SignupForm = () => {
+const DiagnosisForm2 = () => {
   return (
     <>
-      <h1>Diagnosis Form 1</h1>
+      <h1>Diagnosis Form 2</h1>
       <Formik
         initialValues={{
-          age: "",
-          gender: "",
-          location: "", // added for our select
-          acceptedTerms: false // added for our checkbox
+          bodyPart: "",
+          specificBodyPart: "",
         }}
         validationSchema={Yup.object({
-          age: Yup.string()
-            .min(1, "Must be 2 characters or less")
-            .required("Required"),
-          location: Yup.string()
-            .min(2, "Must be 20 characters or less")
-            .required("Required"),
-          acceptedTerms: Yup.boolean()
-            .required("Required")
-            .oneOf([true], "You must accept the terms and conditions."),
-          gender: Yup.string()
-            // specify the set of valid values for job type
+          bodyPart: Yup.string()
+            // specify the set of valid values
             // @see http://bit.ly/yup-mixed-oneOf
-            .oneOf(
-              ["male", "female", "other"],
-              "Invalid Gender Type"
-            )
-            .required("Required")
+          .oneOf(
+            ["head", "neck", "trunk", "arms", "legs"],
+            "Invalid Body Part"
+          )
+          .required("Required"),
+          specificBodyPart: Yup.string()
+          .oneOf(
+            ["value1", "value2", "value3", "value4", "value5"],
+            "Invalid Specific Body Part"
+          )
+            .required("Required"),
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
@@ -113,28 +108,26 @@ const SignupForm = () => {
         }}
       >
         <Form>
-          <MyTextInput
-            label="Age"
-            name="age"
-            type="number"
-            placeholder="21"
-          />
-          <MyTextInput
-            label="Location"
-            name="location"
-            type="text"
-            placeholder="Toronto"
-          />
-          <MySelect label="Gender" name="gender">
+          <MySelect label="Body Part" name="bodyPart">
             <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="head">Head</option>
+            <option value="neck">Neck</option>
+            <option value="trunk">Trunk</option>
+            <option value="arms">Arms</option>
+            <option value="legs">Legs</option>
           </MySelect>
-          <MyCheckbox name="acceptedTerms">
-            I accept the terms and conditions
-          </MyCheckbox>
-
+          <p></p>
+          <p>Please select the body part first, then select the specific body part below</p>
+          <MySelect label="Specific Body Part" name="specificBodyPart">
+            <option value="">Select</option>
+            <option value="value1">Value1</option>
+            <option value="value2">Value2</option>
+            <option value="value3">Value3</option>
+            <option value="value4">Value4</option>
+            <option value="value5">Value5</option>
+          </MySelect>
+          <p></p>
+          <p>Please click the submit button after selecting the both options above</p>
           <button type="submit">Submit</button>
         </Form>
       </Formik>
@@ -142,7 +135,7 @@ const SignupForm = () => {
   );
 };
 function App() {
-  return <SignupForm />;
+  return <DiagnosisForm2 />;
 }
 
 const rootElement = document.getElementById("root");
