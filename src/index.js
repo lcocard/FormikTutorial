@@ -7,8 +7,8 @@ import "materialize-css/dist/css/materialize.min.css";
 const DiagnosisForm4 = () => {
   return (
     <>
-      <div class="col s12 m7">
-      <h2 class="header">Diagnosis 1</h2>
+      <div className="col s12 m7">
+      <h2 className="header">Diagnosis 1</h2>
       <div class="card horizontal">
         <div class="card-image">
           <img src="https://lorempixel.com/100/190/nature/6"  alt="Diagnosis 1"/>
