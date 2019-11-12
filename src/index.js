@@ -87,6 +87,9 @@ const DiagnosisForm4 = () => {
         </div>
       </div>
     </div>
+    <div className="col s12 m7">
+    <a class="waves-effect waves-light btn">Reset</a>
+    </div>
     </>
   );
 };
