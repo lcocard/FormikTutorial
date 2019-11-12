@@ -6,36 +6,6 @@ import styled from "@emotion/styled";
 import "./styles.css";
 import "./styles-custom.css";
 
-const MyTextInput = ({ label, ...props }) => {
-  // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
-  // which we can spread on <input> and alse replace ErrorMessage entirely.
-  const [field, meta] = useField(props);
-  return (
-    <>
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <input className="text-input" {...field} {...props} />
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </>
-  );
-};
-
-const MyCheckbox = ({ children, ...props }) => {
-  const [field, meta] = useField({ ...props, type: "checkbox" });
-  return (
-    <>
-      <label className="checkbox">
-        <input {...field} {...props} type="checkbox" />
-        {children}
-      </label>
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </>
-  );
-};
-
 // Styled components ....
 const StyledSelect = styled.select`
   color: var(--blue);
@@ -75,35 +45,51 @@ const MySelect = ({ label, ...props }) => {
 };
 
 // And now we can use these
-const SignupForm = () => {
+const DiagnosisForm3 = () => {
   return (
     <>
-      <h1>Diagnosis Form 1</h1>
+      <h1>Diagnosis Form 3</h1>
       <Formik
         initialValues={{
-          age: "",
-          gender: "",
-          location: "", // added for our select
-          acceptedTerms: false // added for our checkbox
+          firstSymptom: "",
+          secondSymptom: "",
+          thirdSymptom: "",
+          fourthSymptom: "",
+          fifthSymptom: ""
         }}
         validationSchema={Yup.object({
-          age: Yup.string()
-            .min(1, "Must be 2 characters or less")
-            .required("Required"),
-          location: Yup.string()
-            .min(2, "Must be 20 characters or less")
-            .required("Required"),
-          acceptedTerms: Yup.boolean()
-            .required("Required")
-            .oneOf([true], "You must accept the terms and conditions."),
-          gender: Yup.string()
-            // specify the set of valid values for job type
+          firstSymptom: Yup.string()
+            // specify the set of valid values
             // @see http://bit.ly/yup-mixed-oneOf
-            .oneOf(
-              ["male", "female", "other"],
-              "Invalid Gender Type"
-            )
-            .required("Required")
+          .oneOf(
+            ["symptom1", "symptom2", "symptom3", "symptom4", "symptom5"],
+            "Invalid Symptom"
+          )
+          .required("Required"),
+          secondSymptom: Yup.string()
+          .oneOf(
+            ["symptom1", "symptom2", "symptom3", "symptom4", "symptom5"],
+            "Invalid Symptom"
+          )
+            .required("Required"),
+            thirdSymptom: Yup.string()
+          .oneOf(
+            ["symptom1", "symptom2", "symptom3", "symptom4", "symptom5"],
+            "Invalid Symptom"
+          ),
+            //.required("Required"),
+            fourthSymptom: Yup.string()
+          .oneOf(
+            ["symptom1", "symptom2", "symptom3", "symptom4", "symptom5"],
+            "Invalid Symptom"
+          ),
+            //.required("Required"),
+            fifthSymptom: Yup.string()
+          .oneOf(
+            ["symptom1", "symptom2", "symptom3", "symptom4", "symptom5"],
+            "Invalid Symptom"
+          )
+           // .required("Required"),
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
@@ -113,28 +99,46 @@ const SignupForm = () => {
         }}
       >
         <Form>
-          <MyTextInput
-            label="Age"
-            name="age"
-            type="number"
-            placeholder="21"
-          />
-          <MyTextInput
-            label="Location"
-            name="location"
-            type="text"
-            placeholder="Toronto"
-          />
-          <MySelect label="Gender" name="gender">
+          <MySelect label="1.Symptom" name="firstSymptom">
             <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="symptom1">Symptom1</option>
+            <option value="symptom2">Symptom2</option>
+            <option value="symptom3">Symptom3</option>
+            <option value="symptom4">Symptom4</option>
+            <option value="symptom5">Symptom5</option>
           </MySelect>
-          <MyCheckbox name="acceptedTerms">
-            I accept the terms and conditions
-          </MyCheckbox>
-
+          <MySelect label="2.Symptom" name="secondSymptom">
+          <option value="symptom1">Symptom1</option>
+            <option value="symptom2">Symptom2</option>
+            <option value="symptom3">Symptom3</option>
+            <option value="symptom4">Symptom4</option>
+            <option value="symptom5">Symptom5</option>
+          </MySelect>
+          <MySelect label="3.Symptom" name="thirdSymptom">
+            <option value="">Select</option>
+            <option value="symptom1">Symptom1</option>
+            <option value="symptom2">Symptom2</option>
+            <option value="symptom3">Symptom3</option>
+            <option value="symptom4">Symptom4</option>
+            <option value="symptom5">Symptom5</option>
+          </MySelect>
+          <MySelect label="4.Symptom" name="fourthSymptom">
+          <option value="symptom1">Symptom1</option>
+            <option value="symptom2">Symptom2</option>
+            <option value="symptom3">Symptom3</option>
+            <option value="symptom4">Symptom4</option>
+            <option value="symptom5">Symptom5</option>
+          </MySelect>
+          <MySelect label="5.Symptom" name="fifthSymptom">
+            <option value="">Select</option>
+            <option value="symptom1">Symptom1</option>
+            <option value="symptom2">Symptom2</option>
+            <option value="symptom3">Symptom3</option>
+            <option value="symptom4">Symptom4</option>
+            <option value="symptom5">Symptom5</option>
+          </MySelect>
+          <p></p>
+          <p>Please click the submit button after selecting at least the first two symptoms above</p>
           <button type="submit">Submit</button>
         </Form>
       </Formik>
@@ -142,7 +146,7 @@ const SignupForm = () => {
   );
 };
 function App() {
-  return <SignupForm />;
+  return <DiagnosisForm3 />;
 }
 
 const rootElement = document.getElementById("root");

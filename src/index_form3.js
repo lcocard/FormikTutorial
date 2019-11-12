@@ -51,11 +51,11 @@ const DiagnosisForm3 = () => {
       <h1>Diagnosis Form 3</h1>
       <Formik
         initialValues={{
-          symptom1: "",
-          symptom2: "",
-          symptom3: "",
-          symptom4: "",
-          symptom5: ""
+          firstSymptom: "",
+          secondSymptom: "",
+          thirdSymptom: "",
+          fourthSymptom: "",
+          fifthSymptom: ""
         }}
         validationSchema={Yup.object({
           firstSymptom: Yup.string()
@@ -68,25 +68,25 @@ const DiagnosisForm3 = () => {
           .required("Required"),
           secondSymptom: Yup.string()
           .oneOf(
-            ["symptom6", "symptom7", "symptom8", "symptom9", "symptom10"],
+            ["symptom1", "symptom2", "symptom3", "symptom4", "symptom5"],
             "Invalid Symptom"
           )
             .required("Required"),
             thirdSymptom: Yup.string()
           .oneOf(
-            ["symptom11", "symptom12", "symptom13", "symptom14", "symptom15"],
+            ["symptom1", "symptom2", "symptom3", "symptom4", "symptom5"],
             "Invalid Symptom"
           ),
             //.required("Required"),
             fourthSymptom: Yup.string()
           .oneOf(
-            ["symptom16", "symptom17", "symptom18", "symptom19", "symptom20"],
+            ["symptom1", "symptom2", "symptom3", "symptom4", "symptom5"],
             "Invalid Symptom"
           ),
             //.required("Required"),
             fifthSymptom: Yup.string()
           .oneOf(
-            ["symptom21", "symptom22", "symptom23", "symptom24", "symptom25"],
+            ["symptom1", "symptom2", "symptom3", "symptom4", "symptom5"],
             "Invalid Symptom"
           )
            // .required("Required"),
@@ -108,36 +108,34 @@ const DiagnosisForm3 = () => {
             <option value="symptom5">Symptom5</option>
           </MySelect>
           <MySelect label="2.Symptom" name="secondSymptom">
-            <option value="">Select</option>
-            <option value="symptom6">Symptom6</option>
-            <option value="symptom7">Symptom7</option>
-            <option value="symptom8">Symptom8</option>
-            <option value="symptom9">Symptom9</option>
-            <option value="symptom10">Symptom10</option>
+          <option value="symptom1">Symptom1</option>
+            <option value="symptom2">Symptom2</option>
+            <option value="symptom3">Symptom3</option>
+            <option value="symptom4">Symptom4</option>
+            <option value="symptom5">Symptom5</option>
           </MySelect>
           <MySelect label="3.Symptom" name="thirdSymptom">
             <option value="">Select</option>
-            <option value="symptom11">Symptom11</option>
-            <option value="symptom12">Symptom12</option>
-            <option value="symptom13">Symptom13</option>
-            <option value="symptom14">Symptom14</option>
-            <option value="symptom15">Symptom15</option>
+            <option value="symptom1">Symptom1</option>
+            <option value="symptom2">Symptom2</option>
+            <option value="symptom3">Symptom3</option>
+            <option value="symptom4">Symptom4</option>
+            <option value="symptom5">Symptom5</option>
           </MySelect>
           <MySelect label="4.Symptom" name="fourthSymptom">
-            <option value="">Select</option>
-            <option value="symptom16">Symptom16</option>
-            <option value="symptom17">Symptom17</option>
-            <option value="symptom18">Symptom18</option>
-            <option value="symptom19">Symptom19</option>
-            <option value="symptom20">Symptom20</option>
+          <option value="symptom1">Symptom1</option>
+            <option value="symptom2">Symptom2</option>
+            <option value="symptom3">Symptom3</option>
+            <option value="symptom4">Symptom4</option>
+            <option value="symptom5">Symptom5</option>
           </MySelect>
           <MySelect label="5.Symptom" name="fifthSymptom">
             <option value="">Select</option>
-            <option value="symptom21">Symptom21</option>
-            <option value="symptom22">Symptom22</option>
-            <option value="symptom23">Symptom23</option>
-            <option value="symptom24">Symptom24</option>
-            <option value="symptom25">Symptom25</option>
+            <option value="symptom1">Symptom1</option>
+            <option value="symptom2">Symptom2</option>
+            <option value="symptom3">Symptom3</option>
+            <option value="symptom4">Symptom4</option>
+            <option value="symptom5">Symptom5</option>
           </MySelect>
           <p></p>
           <p>Please click the submit button after selecting at least the first two symptoms above</p>
