@@ -24,7 +24,7 @@ const DiagnosisForm4 = () => {
       </div>
     </div>
     <div className="col s12 m7">
-      <h2 cclassName="header">Diagnosis 2</h2>
+      <h2 className="header">Diagnosis 2</h2>
       <div className="card horizontal">
         <div className="card-image">
           <img src="https://lorempixel.com/100/190/nature/6"  alt="Diagnosis 2"/>
