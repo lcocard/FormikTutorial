@@ -99,7 +99,7 @@ const DiagnosisForm3 = () => {
         }}
       >
         <Form>
-          <MySelect label="1.Symptom" name="firstSymptom">
+          <MySelect label="1. Symptom" name="firstSymptom">
             <option value="">Select</option>
             <option value="symptom1">Symptom1</option>
             <option value="symptom2">Symptom2</option>
@@ -107,14 +107,14 @@ const DiagnosisForm3 = () => {
             <option value="symptom4">Symptom4</option>
             <option value="symptom5">Symptom5</option>
           </MySelect>
-          <MySelect label="2.Symptom" name="secondSymptom">
+          <MySelect label="2. Symptom" name="secondSymptom">
           <option value="symptom1">Symptom1</option>
             <option value="symptom2">Symptom2</option>
             <option value="symptom3">Symptom3</option>
             <option value="symptom4">Symptom4</option>
             <option value="symptom5">Symptom5</option>
           </MySelect>
-          <MySelect label="3.Symptom" name="thirdSymptom">
+          <MySelect label="3. Symptom" name="thirdSymptom">
             <option value="">Select</option>
             <option value="symptom1">Symptom1</option>
             <option value="symptom2">Symptom2</option>
@@ -122,14 +122,14 @@ const DiagnosisForm3 = () => {
             <option value="symptom4">Symptom4</option>
             <option value="symptom5">Symptom5</option>
           </MySelect>
-          <MySelect label="4.Symptom" name="fourthSymptom">
+          <MySelect label="4. Symptom" name="fourthSymptom">
           <option value="symptom1">Symptom1</option>
             <option value="symptom2">Symptom2</option>
             <option value="symptom3">Symptom3</option>
             <option value="symptom4">Symptom4</option>
             <option value="symptom5">Symptom5</option>
           </MySelect>
-          <MySelect label="5.Symptom" name="fifthSymptom">
+          <MySelect label="5. Symptom" name="fifthSymptom">
             <option value="">Select</option>
             <option value="symptom1">Symptom1</option>
             <option value="symptom2">Symptom2</option>
