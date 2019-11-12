@@ -9,8 +9,8 @@ const DiagnosisForm4 = () => {
     <>
       <div className="col s12 m7">
       <h2 className="header">Diagnosis 1</h2>
-      <div class="card horizontal">
-        <div class="card-image">
+      <div className="card horizontal">
+        <div className="card-image">
           <img src="https://lorempixel.com/100/190/nature/6"  alt="Diagnosis 1"/>
         </div>
         <div class="card-stacked">
